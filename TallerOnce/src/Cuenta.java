@@ -40,12 +40,12 @@ public class Cuenta {
 			 this.cantidad = 0;
 		 }
 	 }
-	 
+
+	@Override
 	public String toString() {
-		return "Cuenta [titular=" + this.titular + ", cantidad=" + this.cantidad + "]";
+		return "Cuenta [titular=" + titular + ", cantidad=" + cantidad + "]";
 	}
+	 
+
 }
-
-
-
 

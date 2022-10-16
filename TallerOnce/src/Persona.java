@@ -1,63 +1,4 @@
-import java.util.Scanner;
-
-public class Persona {
-
-	public static void main(String[] args) {
-		
-		Scanner read = new Scanner(System.in);		
-        
-        System.out.println("Introduce el nombre: ");
-        String nombre = read.next();
- 
-        System.out.println("Introduce la edad: ");
-        int edad = read.nextInt();
- 
-        System.out.println("Introduce el sexo: ");
-        char sexo = read.next().charAt(0);
-        
-        System.out.println("Introduce el peso: ");
-        double peso = read.nextDouble();        
- 
-        System.out.println("Introduce la altura: ");
-        double altura = read.nextDouble();         
-        
-        Persona0 individuo = new Persona0(nombre, edad, sexo, peso, altura);
- 
-        System.out.println("Paciente: ");
-        MuestraMensajePeso(individuo);
-        MuestraMayorDeEdad(individuo);
-        System.out.println(individuo.toString());
-    }
- 
- 
-
-	public static void MuestraMensajePeso(Persona0 p) {
-        int IMC = p.calcularIMC();
-        switch (IMC) {
-            case Persona0.PESO_IDEAL:
-                System.out.println("La persona esta en su peso ideal");
-                break;
-            case Persona0.INFRAPESO:
-                System.out.println("La persona esta por debajo de su peso ideal");
-                break;
-            case Persona0.SOBREPESO:
-                System.out.println("La persona esta por encima de su peso ideal");
-                break;
-        }
-    }
- 
-    public static void MuestraMayorDeEdad(Persona0 p) {
- 
-        if (p.esMayorDeEdad()) {
-            System.out.println("La persona es mayor de edad");
-        } else {
-            System.out.println("La persona no es mayor de edad");
-        }	
-    }
-
-}
-
-class Persona0 { 
+public class Persona { 
    
     private final static char SEXO_DEF = 'H';     
     public static final int INFRAPESO = -1;     
@@ -72,8 +13,17 @@ class Persona0 {
     private double peso;    
     private double altura;
  
+    public Persona() {} 
     
-    public Persona0(String nombre, int edad, char sexo, double peso, double altura) {
+    
+    public Persona(String nombre, int edad, char sexo) {
+    	this.nombre = nombre;
+        this.edad = edad;
+        this.sexo = sexo;
+        comprobarSexo();
+    }
+    
+    public Persona(String nombre, int edad, char sexo, double peso, double altura) {
         this.nombre = nombre;
         this.edad = edad;
         this.peso = peso;
@@ -81,7 +31,11 @@ class Persona0 {
         cedula();
         this.sexo = sexo;
         comprobarSexo();
+    
+    
+             
     }
+    
  
     
     private void comprobarSexo() { 
@@ -170,7 +124,5 @@ class Persona0 {
     }
 }
 	     
-	     	     
+ 	     
 	    
-
-
